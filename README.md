@@ -33,6 +33,7 @@ Python 설치 및 코드 편집 가능한 환경(Visual Studio Code, PyCharm 등
 ```s
 # googleapiclient.discovery
 pip3 install google-api-python-client
+
 # oauth2client
 pip3 install --upgrade oauth2client
 ```
