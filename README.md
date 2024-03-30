@@ -94,7 +94,7 @@ def main():
     if not creds or creds.invalid:
         oauth_client_json_file = '{json-file-name}' # OAuth 클라이언트 json 파일명 입력
         flow = client.flow_from_clientsecrets(oauth_client_json_file, SCOPES)
-        creds = tools.run_flow(flow, store, flags) if flags else tools.run(flow, store)
+        creds = tools.run(flow, store)
 
     DRIVE = build('drive', 'v3', http=creds.authorize(Http()))
 
