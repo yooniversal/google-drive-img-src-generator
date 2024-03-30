@@ -20,8 +20,8 @@ def extract_key_from_uri(uri):
         return match.group(1)
     return None
     
-def get_upload_uri(uri):
-    return 'https://lh3.google.com/u/0/d/' + uri
+def get_upload_uri(key):
+    return 'https://lh3.google.com/u/0/d/' + key
 
 def main():
     try :
