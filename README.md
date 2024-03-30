@@ -78,7 +78,7 @@ Google Drive에서 파일을 업로드할 최종 경로 folder의 id가 필요�
 ## 코드 수정
 git clone 후 `google-drive-img-src-generator.py`를 실행해주세요.
 ```
-https://github.com/yooniversal/google-drive-img-src-generator.git
+git clone https://github.com/yooniversal/google-drive-img-src-generator.git
 ```
 <br>
 
