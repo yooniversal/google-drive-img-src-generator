@@ -7,20 +7,18 @@ import re
 def get_image_mimetype(file_title):
     if file_title.endswith('.jpeg') or file_title.endswith('.jpg'):
         return 'image/jpeg'
-    elif file_title.endswith('.gif'):
-        return 'image/gif'
-    elif file_title.endswith('.png'):
+    if file_title.endswith('.png'):
         return 'image/png'
-    else:
-        return 'image/jpeg'
+    if file_title.endswith('.gif'):
+        return 'image/gif'
+    return 'image/png'
     
 def extract_key_from_uri(uri):
     pattern = r"https://drive.google.com/file/d/([^/]+)/view\?usp=drivesdk"
     match = re.match(pattern, uri)
     if match:
         return match.group(1)
-    else:
-        return None
+    return None
     
 def get_upload_uri(uri):
     return 'https://lh3.google.com/u/0/d/' + uri
