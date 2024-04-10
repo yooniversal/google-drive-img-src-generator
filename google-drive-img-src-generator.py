@@ -24,6 +24,12 @@ def get_upload_uri(key):
     return 'https://lh3.google.com/u/0/d/' + key
 
 def main():
+    try:
+        import argparse
+        flags = argparse.ArgumentParser(parents=[tools.argparser]).parse_args()
+    except ImportError:
+        flags = None
+
     SCOPES = 'https://www.googleapis.com/auth/drive.file'
     store = file.Storage('storage.json')
     creds = store.get()
@@ -32,7 +38,7 @@ def main():
         # OAuth 클라이언트 json 파일명 입력
         oauth_client_json_file = '{json-file-name}'
         flow = client.flow_from_clientsecrets(oauth_client_json_file, SCOPES)
-        creds = tools.run(flow, store)
+        creds = tools.run_flow(flow, store, flags) if flags else tools.run(flow, store)
 
     DRIVE = build('drive', 'v3', http=creds.authorize(Http()))
 
